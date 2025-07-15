@@ -55,22 +55,27 @@ DEFAULT_USER_PROMPT_PR = ""
 
 console = Console()
 
+
 # --- Core Functions ---
 def config_file_exists():
     """Checks if the config file exists."""
     return CONFIG_FILE.is_file()
 
+
 def load_config():
     """Loads the configuration or exits if it doesn't exist."""
     if not config_file_exists():
-        console.print("[bold red]Configuration file not found. Please run 'git-scribe init'.[/bold red]")
+        console.print(
+            "[bold red]Configuration file not found. Please run 'git-scribe init'.[/bold red]"
+        )
         raise typer.Exit(1)
     return toml.load(CONFIG_FILE)
+
 
 def create_default_config_files():
     """Creates the directory and all default configuration and prompt files."""
     CONFIG_DIR.mkdir(parents=True, exist_ok=True)
-    
+
     with open(CONFIG_FILE, "w", encoding="utf-8") as f:
         f.write(DEFAULT_CONFIG_CONTENT)
     with open(SYS_PROMPT_COMMIT_FILE, "w", encoding="utf-8") as f:
@@ -88,6 +93,6 @@ def create_default_config_files():
             f"All files were created in:\n[cyan]{CONFIG_DIR}[/cyan]\n\n"
             f"Please open [cyan]{CONFIG_FILE}[/cyan] and add your API keys to get started.",
             title="Success",
-            border_style="green"
+            border_style="green",
         )
     )

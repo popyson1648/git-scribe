@@ -1,6 +1,6 @@
 [project]
 name = "popyson-git-scribe"
-version = "0.2.3"
+version = "0.2.4"
 description = "A CLI tool to generate commit messages and pull requests using LLM."
 authors = [{ name = "popyson", email = "popyson@example.com" }]
 license = { text = "MIT" }

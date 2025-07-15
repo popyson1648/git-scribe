@@ -118,3 +118,27 @@ def test_commit_amend_flag(mock_config, mock_git_utils, mock_llm, mock_open):
     mock_git_utils.get_last_commit_message.assert_called_once()
     call_args, _ = mock_llm.generate_text.call_args
     assert "old message" in call_args[2]
+
+
+def test_commit_failure_graceful_exit(mock_config, mock_git_utils, mock_llm, mock_open):
+    """
+    Tests that the command exits gracefully if git_utils.commit fails,
+    preventing a MarkupError crash.
+    """
+    import subprocess
+
+    mock_git_utils.get_staged_diff.return_value = "fake diff"
+    # Simulate a commit failure with a message containing special characters
+    error_message = "pre-commit hook failed with output: [some invalid syntax]"
+    mock_git_utils.commit.side_effect = subprocess.CalledProcessError(
+        returncode=1, cmd="git commit", stderr=error_message
+    )
+    mock_ctx = MagicMock(args=[])
+
+    with pytest.raises(typer.Exit) as e:
+        with patch("typer.prompt", return_value="y"):
+            commit(mock_ctx)
+
+    # Check that the command exited with an error code
+    assert e.value.exit_code == 1
+    # The main test is that this function completes without raising a MarkupError

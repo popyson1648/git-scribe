@@ -42,3 +42,9 @@ dev = [
 
 [project.scripts]
 git-scribe = "git_scribe.main:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]

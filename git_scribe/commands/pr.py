@@ -42,18 +42,19 @@ def pr(
         raise typer.Exit(1)
 
     # Determine head and base branches
-    head_branch = head if head else repo.active_branch.name
-    if not base:
-        # Fetch default branch from GitHub API if not specified
+    head_branch = head if isinstance(head, str) else repo.active_branch.name
+    
+    # Fetch default branch from GitHub API if not specified
+    if not base or not isinstance(base, str):
         try:
             repo_info_url = f"https://api.github.com/repos/{owner}/{repo_name}"
-            headers = {"Authorization": f"token {github_token}"}
-            repo_info = requests.get(repo_info_url, headers=headers).json()
-            base_branch = repo_info.get("default_branch", "main")
-            console.print(f"[cyan]Base branch not specified, using repository default: '{base_branch}'[/cyan]")
-        except Exception:
+            headers = {"Authorization": f"token {github_token}", "Accept": "application/vnd.github.v3+json"}
+            response = requests.get(repo_info_url, headers=headers)
+            response.raise_for_status()
+            base_branch = response.json().get("default_branch", "main")
+        except Exception as e:
             base_branch = "main" # Fallback
-            console.print(f"[yellow]Could not fetch default branch, falling back to 'main'. Please specify with --base if this is incorrect.[/yellow]")
+            console.print(f"[bold yellow]Warning: Could not fetch default branch: {e}. Falling back to '{base_branch}'.[/bold yellow]")
     else:
         base_branch = base
 

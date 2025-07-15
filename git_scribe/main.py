@@ -8,7 +8,10 @@ app = typer.Typer(
 )
 
 app.command(name="init")(init.init)
-app.command(name="commit", context_settings={"allow_extra_args": True, "ignore_unknown_options": True})(commit.commit)
+app.command(
+    name="commit",
+    context_settings={"allow_extra_args": True, "ignore_unknown_options": True},
+)(commit.commit)
 app.command(name="pr")(pr.pr)
 
 if __name__ == "__main__":

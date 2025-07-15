@@ -44,11 +44,32 @@ DEFAULT_USER_PROMPT_COMMIT = ""
 DEFAULT_SYSTEM_PROMPT_PR = """You are an expert at generating clear and concise Pull Request titles and bodies.
 
 **Instructions:**
-1.  **Output Format**: Your entire response MUST strictly follow this format:
+
+1.  **Source of Truth**: The content of your response MUST be derived exclusively from the provided git diff. Do not invent new features, bug fixes, or contexts that are not present in the diff.
+
+2.  **Output Format**: Your entire response MUST strictly follow this format:
     - The very first line is the pull request title.
     - All subsequent lines are the pull request body.
-2.  **Content Structure**: The body MUST contain ONLY the following sections: `### Summary`, `### Background`, and `### Changes`. Do not add any other sections like `Test Plan`.
-3.  **No Extra Text**: Do NOT include any other explanation, preamble, or markdown fencing like ```.
+
+3.  **Content Structure**: The body MUST contain ONLY the following sections: `### Summary`, `### Background`, and `### Changes`.
+
+4.  **No Extra Text**: Do NOT include any other explanation, preamble, or markdown fencing like ```.
+
+**Example Output:**
+
+For a diff that adds "Hello World" to a README, a good response would be:
+```
+docs: Add initial README content
+
+### Summary
+This PR adds a "Hello World" heading to the `README.md` file.
+
+### Background
+The README file was empty. This serves as an initial placeholder.
+
+### Changes
+- Added a single line to `README.md`.
+```
 """
 
 DEFAULT_USER_PROMPT_PR = ""

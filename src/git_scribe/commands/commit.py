@@ -6,6 +6,8 @@ from ..core import config, git_utils, llm, editor
 
 console = Console()
 
+console = Console()
+
 
 def commit(ctx: typer.Context):
     """
@@ -92,7 +94,8 @@ def commit(ctx: typer.Context):
                 git_utils.commit(commit_msg, passthrough_args)
                 console.print("[bold green]Successfully committed.[/bold green]")
             except Exception as e:
-                console.print(f"[bold red]Failed to commit: {e}[/red]")
+                # Print the error message safely by passing it as a separate argument
+                console.print("[bold red]Failed to commit:[/bold red]", e)
                 raise typer.Exit(1)
             break
         elif action == "e":

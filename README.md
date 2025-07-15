@@ -5,6 +5,18 @@
 </p>
 
 <p align="center">
+  <a href="https://pypi.org/project/popyson-git-scribe/"><img alt="PyPI version" src="https://img.shields.io/pypi/v/popyson-git-scribe.svg"></a>
+  <a href="https://pypi.org/project/popyson-git-scribe/"><img alt="Python Versions" src="https://img.shields.io/pypi/pyversions/popyson-git-scribe.svg"></a>
+  <a href="https://opensource.org/licenses/MIT"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
+</p>
+<p align="center">
+  <a href="https://github.com/popyson1648/git-scribe/actions/workflows/ci.yml"><img alt="Build Status" src="https://github.com/popyson1648/git-scribe/actions/workflows/ci.yml/badge.svg"></a>
+  <a href="https://codecov.io/gh/popyson1648/git-scribe"><img alt="Code Coverage" src="https://codecov.io/gh/popyson1648/git-scribe/graph/badge.svg"></a>
+  <a href="https://ai.google.dev/"><img alt="Powered by Gemini" src="https://img.shields.io/badge/Powered%20by-Gemini-blue?logo=google&logoColor=white"></a>
+  <a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
+</p>
+
+<p align="center">
   <strong>Your AI-powered git assistant for crafting perfect commits and pull requests.</strong>
 </p>
 

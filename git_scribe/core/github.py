@@ -1,9 +1,10 @@
 import requests
+from typing import Optional
 
 
 def get_milestone_id(
     token: str, owner: str, repo_name: str, milestone_name: str
-) -> int | None:
+) -> Optional[int]:
     """Finds the ID of a milestone by its name."""
     api_url = f"https://api.github.com/repos/{owner}/{repo_name}/milestones"
     headers = {
@@ -30,7 +31,7 @@ def create_pull_request(
     reviewers: list,
     assignees: list,
     labels: list,
-    milestone: int | None,
+    milestone: Optional[int],
 ) -> dict:
     """Creates a pull request on GitHub."""
     api_url = f"https://api.github.com/repos/{owner}/{repo_name}/pulls"

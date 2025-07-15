@@ -2,6 +2,7 @@ import git
 import os
 import subprocess
 import tempfile
+from typing import List, Tuple
 
 
 def get_repo() -> git.Repo:
@@ -32,7 +33,7 @@ def get_last_commit_message(repo: git.Repo) -> str:
     return repo.head.commit.message
 
 
-def commit(message: str, commit_args: list[str]):
+def commit(message: str, commit_args: List[str]):
     """Performs the commit, passing through any extra arguments."""
     with tempfile.NamedTemporaryFile(
         mode="w+", delete=False, encoding="utf-8"
@@ -47,7 +48,7 @@ def commit(message: str, commit_args: list[str]):
         os.unlink(tmpfile_path)
 
 
-def get_repo_info(repo: git.Repo) -> tuple[str, str]:
+def get_repo_info(repo: git.Repo) -> Tuple[str, str]:
     """Extracts owner and repo name from the remote URL."""
     try:
         remote_url = repo.remotes.origin.url

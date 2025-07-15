@@ -1,9 +1,23 @@
 [project]
-name = "git-scribe"
+name = "popyson-git-scribe"
 version = "0.2.0"
 description = "A CLI tool to generate commit messages and pull requests using LLM."
 authors = [{ name = "popyson", email = "popyson@example.com" }]
 license = { text = "MIT" }
+readme = "README.md"
+keywords = ["git", "ai", "llm", "commit", "developer-tools", "cli"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Version Control :: Git",
+    "Topic :: Utilities",
+]
 requires-python = ">=3.8"
 dependencies = [
     "requests",
@@ -13,10 +27,15 @@ dependencies = [
     "toml",
 ]
 
+[project.urls]
+"Homepage" = "https://github.com/popyson1648/git-scribe"
+"Bug Tracker" = "https://github.com/popyson1648/git-scribe/issues"
+
 [project.optional-dependencies]
 dev = [
     "pytest",
     "pytest-mock",
+    "pytest-cov",
 ]
 
 [project.scripts]

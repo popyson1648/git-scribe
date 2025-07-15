@@ -32,6 +32,10 @@
 
 `git-scribe` is a command-line tool that leverages Large Language Models (LLMs) to automatically generate high-quality, conventional commit messages and pull request descriptions. It acts as a smart wrapper around your daily `git` commands, streamlining your workflow and improving your commit history.
 
+## Demo
+
+![Demo of git-scribe in action](assets/demo.gif)
+
 ## Features
 
 - **AI-Generated Commit Messages**: Automatically generates well-formatted commit messages from your staged changes.

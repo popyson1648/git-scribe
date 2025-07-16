@@ -1,7 +1,7 @@
 # git-scribe
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/popyson1648/git-llm/main/logo.png" alt="git-scribe logo" width="200"/>
+  <img src="https://raw.githubusercontent.com/popyson1648/git-scribe/main/logo.png" alt="git-scribe logo" width="200"/>
 </p>
 
 <p align="center">
@@ -34,7 +34,7 @@
 
 ## Demo
 
-![Demo of git-scribe in action](assets/demo.gif)
+![Demo of git-scribe in action](https://raw.githubusercontent.com/popyson1648/git-scribe/main/assets/demo.gif)
 
 ## Features
 
@@ -54,13 +54,17 @@
 
 ### 1. Install `git-scribe`
 
-You can install the tool directly from this GitHub repository:
+You can install the tool from PyPI:
 
 ```bash
-pip install git+https://github.com/popyson1648/git-llm.git
+pip install popyson-git-scribe
 ```
 
-*(Note: Once published to PyPI, this will become `pip install git-scribe`)*
+Alternatively, you can install it directly from the GitHub repository for the latest development version:
+
+```bash
+pip install git+https://github.com/popyson1648/git-scribe.git
+```
 
 ### 2. Initial Setup
 
@@ -159,11 +163,15 @@ Contributions are welcome! Please feel free to open an issue or submit a pull re
 
 1.  Clone the repository.
 2.  Create a virtual environment and activate it.
-3.  Install the package in editable mode with development dependencies:
+3.  Install pre-commit hooks:
+    ```bash
+    pre-commit install
+    ```
+4.  Install the package in editable mode with development dependencies:
     ```bash
     pip install -e .[dev]
     ```
-4.  Run tests:
+5.  Run tests:
     ```bash
     pytest
     ```

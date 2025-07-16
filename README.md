@@ -34,7 +34,7 @@
 
 ## Demo
 
-![Demo of git-scribe in action](https://raw.githubusercontent.com/popyson1648/git-scribe/docs/fix-readme-gif/assets/demo.gif)
+![Demo of git-scribe in action](https://raw.githubusercontent.com/popyson1648/git-scribe/main/assets/demo.gif)
 
 ## Features
 

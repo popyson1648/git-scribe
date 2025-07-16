@@ -161,17 +161,24 @@ Contributions are welcome! Please feel free to open an issue or submit a pull re
 
 ### Development Setup
 
+We use [uv](https://github.com/astral-sh/uv) for managing our development environment.
+
 1.  Clone the repository.
-2.  Create a virtual environment and activate it.
-3.  Install pre-commit hooks:
+2.  Install `uv` (see [official instructions](https://github.com/astral-sh/uv#installation)).
+3.  Create and activate a virtual environment:
+    ```bash
+    uv venv
+    source .venv/bin/activate
+    ```
+4.  Install pre-commit hooks:
     ```bash
     pre-commit install
     ```
-4.  Install the package in editable mode with development dependencies:
+5.  Install the package in editable mode with development dependencies:
     ```bash
-    pip install -e .[dev]
+    uv pip install -e .[dev]
     ```
-5.  Run tests:
+6.  Run tests:
     ```bash
     pytest
     ```

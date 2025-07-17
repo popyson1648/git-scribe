@@ -1,7 +1,7 @@
 # git-scribe
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/popyson1648/git-scribe/main/logo.png" alt="git-scribe logo" height="200"/>
+  <img src="https://raw.githubusercontent.com/popyson1648/git-scribe/main/assets/logo.png" alt="git-scribe logo" height="200"/>
 </p>
 
 <p align="center">

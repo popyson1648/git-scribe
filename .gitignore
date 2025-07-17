@@ -33,3 +33,6 @@ Thumbs.db
 # Swap files
 *.swp
 *.swo
+
+# zone identifier file
+*Zone.Identifier

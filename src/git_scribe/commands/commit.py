@@ -94,8 +94,10 @@ def commit(ctx: typer.Context):
                 git_utils.commit(commit_msg, passthrough_args)
                 console.print("[bold green]Successfully committed.[/bold green]")
             except Exception as e:
-                # Print the error message safely by passing it as a separate argument
-                console.print("[bold red]Failed to commit:[/bold red]", e)
+                from rich.markup import escape
+
+                error_message = escape(str(e))
+                console.print("[bold red]Failed to commit:[/bold red]", error_message)
                 raise typer.Exit(1)
             break
         elif action == "e":
